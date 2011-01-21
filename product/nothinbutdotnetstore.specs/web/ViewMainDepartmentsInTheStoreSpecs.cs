@@ -14,7 +14,7 @@ namespace nothinbutdotnetstore.specs.web
     {
         public class when_run : BaseConcern
         {
-            DisplayEngine display_engine;
+            ResponseEngine response_engine;
             IEnumerable<Department> the_main_departments;
             ApplicationCommand sut;
             Request request;
@@ -22,14 +22,14 @@ namespace nothinbutdotnetstore.specs.web
 
             protected override void arrange()
             {
-                display_engine = mock<DisplayEngine>();
+                response_engine = mock<ResponseEngine>();
                 department_repository = mock<DepartmentRepository>();
                 the_main_departments = new List<Department>();
 
                 department_repository.Stub(x => x.get_all_the_main_departments_in_the_store())
                     .Return(the_main_departments);
 
-                sut = new ViewMainDepartmentsInTheStore(department_repository, display_engine);
+                sut = new ViewMainDepartmentsInTheStore(department_repository, response_engine);
             }
 
             protected override void act()
@@ -40,7 +40,7 @@ namespace nothinbutdotnetstore.specs.web
             [Test]
             public void should_tell_the_display_engine_to_display_the_main_departments_in_the_store()
             {
-               display_engine.AssertWasCalled(x => x.display(the_main_departments));
+               response_engine.AssertWasCalled(x => x.display(the_main_departments));
             } 
         } 
     }

@@ -75,12 +75,13 @@
     <Compile Include="tasks\ProductsRepository.cs" />
     <Compile Include="tasks\stubs\StubDepartmentRepository.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewMainDepartmentsInTheStore.cs" />
+    <Compile Include="web\application\catalogbrowsing\ViewProductsInADepartment .cs" />
     <Compile Include="web\core\ApplicationCommand .cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
     <Compile Include="web\core\DefaultCommandRegistry.cs" />
     <Compile Include="web\core\DefaultFrontController.cs" />
     <Compile Include="web\core\DefaultRequestCommand.cs" />
-    <Compile Include="web\core\DisplayEngine.cs" />
+    <Compile Include="web\core\ResponseEngine.cs" />
     <Compile Include="web\core\MissingRequestCommand.cs" />
     <Compile Include="web\core\object.cs" />
     <Compile Include="web\core\RawRequestHandler.cs" />

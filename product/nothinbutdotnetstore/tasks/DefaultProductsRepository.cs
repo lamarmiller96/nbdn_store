@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using nothinbutdotnetstore.dataaccesslayer;
+using nothinbutdotnetstore.model;
 
 namespace nothinbutdotnetstore.tasks
 {
@@ -21,7 +23,7 @@ namespace nothinbutdotnetstore.tasks
             this.product_mapper = product_mapper;
         }
 
-        public IEnumerable<Product> get_products_for_department(int department_id)
+        public IEnumerable<Product> get_all_products_in(int department_id)
         {
             var query = new Query("SELECT * FROM Products WHERE DepartmentID = " + department_id);
             return map_products_from(gateway.run(query));
@@ -30,6 +32,11 @@ namespace nothinbutdotnetstore.tasks
         public IEnumerable<Product> map_products_from(DataTable raw_results)
         {
             return raw_results.Select().Select(product_mapper.map_from);
+        }
+
+        public IEnumerable<Product> get_all_products_in(Department department)
+        {
+            throw new NotImplementedException();
         }
     }
 }
