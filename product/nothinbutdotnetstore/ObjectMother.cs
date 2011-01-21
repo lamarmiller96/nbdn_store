@@ -73,7 +73,7 @@ namespace nothinbutdotnetstore
 
         public class ReportingModels
         {
-            static Department create_customer(int number)
+            static Department create_single_department(int number)
             {
                 return new Department
                 {
@@ -82,9 +82,14 @@ namespace nothinbutdotnetstore
                 };
             }
 
+            public static IEnumerable<Department> create_department(int number,
+                Func<int,Department> factory)
+            {
+                return Enumerable.Range(1, number).Select(factory);
+            }
             public static IEnumerable<Department> create_department(int number)
             {
-                return Enumerable.Range(1, number).Select(create_customer);
+                return create_department(number, create_single_department);
             }
         }
     }

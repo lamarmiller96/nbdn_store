@@ -13,7 +13,15 @@ namespace nothinbutdotnetstore.tasks.stubs
 
         public IEnumerable<Department> get_all_the_main_departments_in_the_store()
         {
-            throw new NotImplementedException();
+            return ObjectMother.ReportingModels.create_department(100,
+                                                                  x =>
+                                                                  {
+                                                                      return new Department
+                                                                      {
+                                                                          Id = x,
+                                                                          Name = x.ToString("Main Department 0")
+                                                                      };
+                                                                  });
         }
     }
 }
