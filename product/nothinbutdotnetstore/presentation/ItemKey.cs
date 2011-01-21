@@ -12,7 +12,12 @@ namespace nothinbutdotnetstore.presentation
 
         public static implicit operator string(ItemKey item_key)
         {
-            return item_key._keyName;
+            return item_key.ToString();
+        }
+
+        public override string ToString()
+        {
+            return _keyName;
         }
 
     }
