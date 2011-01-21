@@ -8,6 +8,11 @@ namespace nothinbutdotnetstore.web.application.catalogbrowsing
         DepartmentRepository department_repository;
         ResponseEngine response_engine;
 
+        public ViewMainDepartmentsInTheStore():this(new DefaultDepartmentRepository(),
+            new HttpHandlerResponseEngine())
+        {
+        }
+
         public ViewMainDepartmentsInTheStore(DepartmentRepository department_repository, ResponseEngine response_engine)
         {
             this.department_repository = department_repository;

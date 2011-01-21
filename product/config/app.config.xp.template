@@ -19,9 +19,13 @@
     <pages autoEventWireup="false">
     </pages>
     <authentication mode="Windows"/>
-   </system.web>
-  
+    <httpHandlers>
+      <add path="*.store"
+        verb="*"
+        type="nothinbutdotnetstore.web.core.RawRequestHandler,nothinbutdotnetstore"/>
+    </httpHandlers>
 
+   </system.web>
   <system.webServer>
   </system.webServer>
 

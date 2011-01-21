@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
 using nothinbutdotnetstore.model;
 using nothinbutdotnetstore.specs.utility;
 using nothinbutdotnetstore.tasks;
-using nothinbutdotnetstore.tasks.stubs;
 using nothinbutdotnetstore.web.application.catalogbrowsing;
 using nothinbutdotnetstore.web.core;
 using NUnit.Framework;
@@ -33,8 +31,7 @@ namespace nothinbutdotnetstore.specs.web
                 request.Stub(x => x.map<Department>()).Return(department);
                 product_repository.Stub(x => x.get_all_products_in(department)).Return(the_products_in_a_department);
 
-                sut = new ViewProductsInADepartment(product_repository,response_engine);
-
+                sut = new ViewProductsInADepartment(product_repository, response_engine);
             }
 
             protected override void act()
@@ -48,6 +45,5 @@ namespace nothinbutdotnetstore.specs.web
                 response_engine.AssertWasCalled(x => x.display(the_products_in_a_department));
             }
         }
-
     }
 }

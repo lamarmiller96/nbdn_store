@@ -23,7 +23,7 @@ namespace nothinbutdotnetstore.tasks
             this.product_mapper = product_mapper;
         }
 
-        public IEnumerable<Product> get_all_products_in(int department_id)
+        IEnumerable<Product> get_all_products_in(long department_id)
         {
             var query = new Query("SELECT * FROM Products WHERE DepartmentID = " + department_id);
             return map_products_from(gateway.run(query));
@@ -36,7 +36,7 @@ namespace nothinbutdotnetstore.tasks
 
         public IEnumerable<Product> get_all_products_in(Department department)
         {
-            throw new NotImplementedException();
+            return get_all_products_in(department.Id);
         }
     }
 }

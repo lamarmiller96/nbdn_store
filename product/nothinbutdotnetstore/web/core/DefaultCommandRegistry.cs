@@ -1,11 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
+using nothinbutdotnetstore.web.core.stubs;
 
 namespace nothinbutdotnetstore.web.core
 {
     public class DefaultCommandRegistry : CommandRegistry
     {
         readonly IEnumerable<RequestCommand> all_available_commands;
+
+        public DefaultCommandRegistry() : this(new StubSetOfAvailableCommands())
+        {
+        }
 
         public DefaultCommandRegistry(IEnumerable<RequestCommand> all_available_commands)
         {
@@ -16,7 +21,6 @@ namespace nothinbutdotnetstore.web.core
         {
             return all_available_commands.FirstOrDefault(x => x.can_process(request))
                 ?? new MissingRequestCommand();
-
         }
     }
 }

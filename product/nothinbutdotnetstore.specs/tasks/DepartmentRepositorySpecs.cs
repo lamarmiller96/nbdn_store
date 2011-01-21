@@ -16,7 +16,7 @@ namespace nothinbutdotnetstore.specs.tasks
             [Test]
             public void should_return_all_of_the_customers_mapped_from_the_customer_data()
             {
-                var sut = new DefaultDepartmentRepository(ObjectMother.database_items.create_db_gateway(),
+                DepartmentRepository sut = new DefaultDepartmentRepository(ObjectMother.database_items.create_db_gateway(),
                                                         new DepartmentMapper());
                 departments_with_products = sut.get_all_departments_with_products();
                 Assert.IsTrue(departments_with_products.Count() > 0);

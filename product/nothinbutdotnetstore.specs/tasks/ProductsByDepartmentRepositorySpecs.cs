@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using nothinbutdotnetstore.model;
 using nothinbutdotnetstore.tasks;
 using NUnit.Framework;
 
@@ -15,7 +16,7 @@ namespace nothinbutdotnetstore.specs.tasks
             var DepartmentID = 9814;
             var sut = new DefaultProductsRepository(ObjectMother.database_items.create_db_gateway(),
                                                                 new ProductMapper());
-            products = sut.get_all_products_in(DepartmentID);
+            products = sut.get_all_products_in(new Department {Id = 9814});
             Assert.IsTrue(products.Count() > 0);
         }
     }

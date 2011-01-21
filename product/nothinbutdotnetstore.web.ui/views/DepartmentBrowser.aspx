@@ -7,7 +7,7 @@ MasterPageFile="Store.master" %>
 <asp:Content ID="content" runat="server" ContentPlaceHolderID="childContentPlaceHolder">
     <p class="ListHead">Select An Department</p>
             <table>            
-            <% foreach (var department in departments)
+            <% foreach (var department in this.model)
                {%>
             <tr class="ListItem">
                		 <td>                     

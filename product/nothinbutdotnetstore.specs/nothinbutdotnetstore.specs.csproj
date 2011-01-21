@@ -76,6 +76,8 @@
     <Compile Include="web\FrontControllerSpecs.cs" />
     <Compile Include="web\RawRequestHandlerSpecs.cs" />
     <Compile Include="web\RequestCommandSpecs.cs" />
+    <Compile Include="web\ResponseEngineSpecs.cs" />
+    <Compile Include="web\ViewFactorySpecs.cs" />
     <Compile Include="web\ViewMainDepartmentsInTheStoreSpecs.cs" />
     <Compile Include="web\ViewProductsInADepartmentSpecs.cs" />
   </ItemGroup>
