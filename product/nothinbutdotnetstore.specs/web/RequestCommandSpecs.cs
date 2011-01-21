@@ -1,8 +1,7 @@
-using System;
-using System.Web.UI.WebControls;
 using nothinbutdotnetstore.specs.utility;
 using nothinbutdotnetstore.web.core;
 using NUnit.Framework;
+using Rhino.Mocks;
 
 namespace nothinbutdotnetstore.specs.web
 {
@@ -30,13 +29,36 @@ namespace nothinbutdotnetstore.specs.web
                 result = sut.can_process(request);
             }
 
-            
             [Test]
             public void should_make_the_determination_by_using_the_request_criteria()
             {
                 Assert.IsTrue(result);
-                Assert.AreEqual(request,request_used);
+                Assert.AreEqual(request, request_used);
             }
-        } 
+        }
+        public class when_running_the_request : BaseConcern
+        {
+            RequestCommand sut;
+            Request request;
+            ApplicationCommand application_command;
+
+            protected override void arrange()
+            {
+                request = mock<Request>();
+                application_command = mock<ApplicationCommand>();
+//                sut = new DefaultRequestCommand(x => true, application_command);
+            }
+
+            protected override void act()
+            {
+               sut.run(request); 
+            }
+
+            [Test]
+            public void should_delegate_the_processing_to_the_application_specific_command()
+            {
+                application_command.AssertWasCalled(x => x.run(request));
+            }
+        }
     }
 }
