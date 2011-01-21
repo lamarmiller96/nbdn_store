@@ -21,7 +21,7 @@ namespace nothinbutdotnetstore.specs.web
                 {
                     request_used = x;
                     return true;
-                });
+                },null);
             }
 
             protected override void act()
@@ -46,7 +46,7 @@ namespace nothinbutdotnetstore.specs.web
             {
                 request = mock<Request>();
                 application_command = mock<ApplicationCommand>();
-//                sut = new DefaultRequestCommand(x => true, application_command);
+                sut = new DefaultRequestCommand(x => true, application_command);
             }
 
             protected override void act()

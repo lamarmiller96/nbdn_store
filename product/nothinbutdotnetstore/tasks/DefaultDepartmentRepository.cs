@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -6,11 +7,6 @@ using nothinbutdotnetstore.model;
 
 namespace nothinbutdotnetstore.tasks
 {
-    public interface DepartmentRepository
-    {
-        IEnumerable<Department> get_all_departments_with_products();
-    }
-
     public class DefaultDepartmentRepository : DepartmentRepository
     {
         DatabaseGateway gateway;
@@ -19,6 +15,11 @@ namespace nothinbutdotnetstore.tasks
         public DefaultDepartmentRepository():this(
             new DefaultDatabaseGateway(),new DepartmentMapper())
         {
+        }
+
+        public IEnumerable<Department> get_all_the_main_departments_in_the_store()
+        {
+            throw new NotImplementedException();
         }
 
         public DefaultDepartmentRepository(DatabaseGateway gateway, DepartmentMapper department_mapper)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using nothinbutdotnetstore.model;
@@ -34,6 +35,10 @@ namespace nothinbutdotnetstore.specs.presentation
     public class OurRepository : DepartmentRepository
     {
         IEnumerable<Department> return_this;
+        public IEnumerable<Department> get_all_the_main_departments_in_the_store()
+        {
+            throw new NotImplementedException();
+        }
 
         public OurRepository(IEnumerable<Department> return_this)
         {
