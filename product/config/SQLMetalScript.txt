@@ -1,0 +1,1 @@
+SQLMetal.exe /server:{server} /database:nothinbutdotnetstore /code:<GeneratedLocation>
