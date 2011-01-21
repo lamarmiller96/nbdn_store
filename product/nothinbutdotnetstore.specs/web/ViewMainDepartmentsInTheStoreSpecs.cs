@@ -22,6 +22,7 @@ namespace nothinbutdotnetstore.specs.web
 
             protected override void arrange()
             {
+                display_engine = mock<DisplayEngine>();
                 department_repository = mock<DepartmentRepository>();
                 the_main_departments = new List<Department>();
 
